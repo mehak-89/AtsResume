@@ -14,8 +14,9 @@ export default function Navbar() {
         <div className="flex items-center gap-2">
           <ClipboardList className="w-10 h-10 text-primary" />
           <Link href="/">
-            <span className="text-xl font-bold text-primary cursor-pointer">ResumeRater</span>
+            <span className="text-xl font-bold text-primary cursor-pointer">Humgrow</span>
           </Link>
+          <span className="text-xs text-gray-500 hidden sm:inline-block ml-2">Change your career with Mehak</span>
         </div>
         <nav className="hidden md:block">
           <ul className="flex gap-6">

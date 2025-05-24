@@ -6,9 +6,9 @@ export default function Footer() {
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="font-semibold text-lg mb-4">ResumeRater</h3>
+            <h3 className="font-semibold text-lg mb-4">Humgrow</h3>
             <p className="text-gray-600 text-sm">
-              Improve your resume's ATS compatibility and increase your chances of getting interviews.
+              Change your career with Mehak. Improve your resume's ATS compatibility and increase your chances of getting interviews.
             </p>
           </div>
           <div>
@@ -88,7 +88,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="border-t border-gray-200 mt-8 pt-8 text-center text-sm text-gray-600">
-          &copy; {new Date().getFullYear()} ResumeRater. All rights reserved.
+          &copy; {new Date().getFullYear()} Humgrow. All rights reserved. Created by Mehak, Lovely Professional University.
         </div>
       </div>
     </footer>

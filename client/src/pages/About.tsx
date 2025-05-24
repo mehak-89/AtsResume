@@ -4,12 +4,15 @@ import { Button } from "@/components/ui/button";
 export default function About() {
   return (
     <div className="py-8 max-w-4xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6">About ResumeRater</h1>
+      <h1 className="text-3xl font-bold mb-6">About Humgrow</h1>
       
       <div className="bg-white rounded-lg shadow p-6 mb-8">
-        <h2 className="text-xl font-semibold mb-4">Our Mission</h2>
+        <h2 className="text-xl font-semibold mb-4">Change Your Career with Mehak</h2>
         <p className="text-gray-700 mb-4">
-          At ResumeRater, we believe everyone deserves a fair chance at their dream job. Our mission is to help job seekers navigate the increasingly automated hiring process by providing tools to optimize resumes for Applicant Tracking Systems (ATS).
+          At Humgrow, we believe everyone deserves a fair chance at their dream job. Our mission is to help job seekers navigate the increasingly automated hiring process by providing tools to optimize resumes for Applicant Tracking Systems (ATS).
+        </p>
+        <p className="text-gray-700 mb-4">
+          My name is Mehak, and I am a student at Lovely Professional University. I created this platform to help job seekers improve their chances of landing interviews by understanding how ATS systems evaluate resumes.
         </p>
         <p className="text-gray-700">
           By helping you understand how ATS systems evaluate your resume, we aim to level the playing field and ensure your qualifications are properly recognized by both algorithms and hiring managers.
@@ -32,7 +35,7 @@ export default function About() {
       <div className="bg-white rounded-lg shadow p-6 mb-8">
         <h2 className="text-xl font-semibold mb-4">Our Technology</h2>
         <p className="text-gray-700 mb-4">
-          ResumeRater uses advanced natural language processing and machine learning algorithms to analyze your resume against job descriptions. Our system evaluates:
+          Humgrow uses advanced natural language processing and machine learning algorithms to analyze your resume against job descriptions. Our system evaluates:
         </p>
         <ul className="list-disc pl-6 mb-4 text-gray-700 space-y-2">
           <li>Keyword matching and relevance</li>
