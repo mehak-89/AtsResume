@@ -14,37 +14,37 @@ export default function Navbar() {
         <div className="flex items-center gap-2">
           <ClipboardList className="w-10 h-10 text-primary" />
           <Link href="/">
-            <a className="text-xl font-bold text-primary">ResumeRater</a>
+            <span className="text-xl font-bold text-primary cursor-pointer">ResumeRater</span>
           </Link>
         </div>
         <nav className="hidden md:block">
           <ul className="flex gap-6">
             <li>
               <Link href="/">
-                <a className={`text-sm font-medium ${isActive("/") ? "text-primary" : "hover:text-primary"}`}>
+                <span className={`text-sm font-medium cursor-pointer ${isActive("/") ? "text-primary" : "hover:text-primary"}`}>
                   Home
-                </a>
+                </span>
               </Link>
             </li>
             <li>
               <Link href="/about">
-                <a className={`text-sm font-medium ${isActive("/about") ? "text-primary" : "hover:text-primary"}`}>
+                <span className={`text-sm font-medium cursor-pointer ${isActive("/about") ? "text-primary" : "hover:text-primary"}`}>
                   About
-                </a>
+                </span>
               </Link>
             </li>
             <li>
               <Link href="/ats-checker">
-                <a className={`text-sm font-medium ${isActive("/ats-checker") ? "text-primary" : "hover:text-primary"}`}>
+                <span className={`text-sm font-medium cursor-pointer ${isActive("/ats-checker") ? "text-primary" : "hover:text-primary"}`}>
                   ATS Checker
-                </a>
+                </span>
               </Link>
             </li>
             <li>
               <Link href="/contact">
-                <a className={`text-sm font-medium ${isActive("/contact") ? "text-primary" : "hover:text-primary"}`}>
+                <span className={`text-sm font-medium cursor-pointer ${isActive("/contact") ? "text-primary" : "hover:text-primary"}`}>
                   Contact
-                </a>
+                </span>
               </Link>
             </li>
           </ul>
@@ -52,7 +52,7 @@ export default function Navbar() {
         <nav className="md:hidden">
           {/* Mobile menu button could go here */}
           <Link href="/ats-checker">
-            <a className="text-sm font-medium text-primary">ATS Checker</a>
+            <span className="text-sm font-medium cursor-pointer text-primary">ATS Checker</span>
           </Link>
         </nav>
       </div>

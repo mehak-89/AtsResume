@@ -1,4 +1,4 @@
-import { useState, useEffect, KeyboardEvent } from "react";
+import { useState, useEffect, KeyboardEvent, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import SkillTag from "./ui/skill-tag";
 import { extractSkillsFromText } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
+import { Plus } from "lucide-react";
 import { z } from "zod";
 
 const jobDetailsSchema = z.object({
@@ -30,7 +31,9 @@ export default function JobDetailsSection({ onSubmit, onBack }: JobDetailsSectio
   const [skills, setSkills] = useState<string[]>([]);
   const [newSkill, setNewSkill] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [isProcessing, setIsProcessing] = useState(false);
   const { toast } = useToast();
+  const skillInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (jobDescription && jobDescription.length > 50) {
@@ -46,9 +49,19 @@ export default function JobDetailsSection({ onSubmit, onBack }: JobDetailsSectio
   }, [jobDescription]);
 
   const handleAddSkill = () => {
-    if (newSkill.trim() && !skills.includes(newSkill.trim())) {
-      setSkills([...skills, newSkill.trim()]);
+    const trimmedSkill = newSkill.trim();
+    if (trimmedSkill && !skills.includes(trimmedSkill)) {
+      setSkills([...skills, trimmedSkill]);
       setNewSkill("");
+      
+      // Clear any skills-related error when user adds a skill
+      if (errors.skills) {
+        setErrors((prev) => {
+          const updated = { ...prev };
+          delete updated.skills;
+          return updated;
+        });
+      }
     }
   };
 
@@ -67,6 +80,8 @@ export default function JobDetailsSection({ onSubmit, onBack }: JobDetailsSectio
     e.preventDefault();
     
     try {
+      setIsProcessing(true);
+      
       const formData = {
         jobTitle,
         companyName,
@@ -95,11 +110,18 @@ export default function JobDetailsSection({ onSubmit, onBack }: JobDetailsSectio
         // Show toast for the first error
         const firstError = error.errors[0];
         toast({
-          title: "Validation Error",
+          title: "Please check the form",
           description: firstError.message,
           variant: "destructive"
         });
+        
+        // If error is related to skills, focus the skill input
+        if (fieldErrors.skills && skillInputRef.current) {
+          skillInputRef.current.focus();
+        }
       }
+    } finally {
+      setIsProcessing(false);
     }
   };
 
