@@ -4,7 +4,7 @@ import { storage } from "./storage";
 import multer from "multer";
 import { z } from "zod";
 import { analyzeResumeSchema } from "@shared/schema";
-import { analyzeResumeForAts } from "./openai";
+import { analyzeResumeForAts } from "./mockAnalyzer";
 import path from "path";
 import { promises as fsPromises } from "fs";
 import { ZodError } from "zod";
@@ -105,7 +105,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(400).json({ message: "Could not extract text from the resume or resume is too short" });
       }
       
-      // Analyze the resume with OpenAI
+      // Analyze the resume with our analyzer
       const analysisResult = await analyzeResumeForAts({
         resumeText,
         jobTitle,
