@@ -99,8 +99,8 @@ export default function Contact() {
                   <Mail className="w-5 h-5 text-primary mt-0.5" />
                   <div>
                     <p className="font-medium">Email</p>
-                    <a href="mailto:info@resumerater.com" className="text-primary hover:underline">
-                      info@resumerater.com
+                    <a href="mailto:mehakdhami190@gmail.com" className="text-primary hover:underline">
+                      mehakdhami190@gmail.com
                     </a>
                   </div>
                 </div>
@@ -109,8 +109,8 @@ export default function Contact() {
                   <Phone className="w-5 h-5 text-primary mt-0.5" />
                   <div>
                     <p className="font-medium">Phone</p>
-                    <a href="tel:+11234567890" className="text-primary hover:underline">
-                      +1 (123) 456-7890
+                    <a href="tel:+918950904178" className="text-primary hover:underline">
+                      +91-8950904178
                     </a>
                   </div>
                 </div>
@@ -120,9 +120,8 @@ export default function Contact() {
                   <div>
                     <p className="font-medium">Office</p>
                     <address className="not-italic text-gray-600">
-                      123 Resume Street<br />
-                      San Francisco, CA 94103<br />
-                      United States
+                      Chandigarh<br />
+                      India
                     </address>
                   </div>
                 </div>
