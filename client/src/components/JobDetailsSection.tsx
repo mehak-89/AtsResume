@@ -190,14 +190,28 @@ export default function JobDetailsSection({ onSubmit, onBack }: JobDetailsSectio
                     onRemove={() => handleRemoveSkill(index)}
                   />
                 ))}
-                <Input
-                  id="skill-input"
-                  value={newSkill}
-                  onChange={(e) => setNewSkill(e.target.value)}
-                  onKeyDown={handleKeyDown}
-                  placeholder="Add skill and press Enter"
-                  className="border-none shadow-none px-0 min-w-[120px] flex-grow"
-                />
+                <div className="flex gap-1 min-w-[180px] flex-grow">
+                  <Input
+                    id="skill-input"
+                    ref={skillInputRef}
+                    value={newSkill}
+                    onChange={(e) => setNewSkill(e.target.value)}
+                    onKeyDown={handleKeyDown}
+                    placeholder="Type a skill and press Enter"
+                    className="border-none shadow-none px-0 flex-grow"
+                  />
+                  {newSkill.trim() && (
+                    <Button 
+                      type="button" 
+                      size="sm" 
+                      variant="ghost" 
+                      className="h-6 w-6 p-0 rounded-full"
+                      onClick={handleAddSkill}
+                    >
+                      <Plus className="h-4 w-4" />
+                    </Button>
+                  )}
+                </div>
               </div>
               {errors.skills ? (
                 <p className="text-destructive text-sm mt-1">{errors.skills}</p>
@@ -212,11 +226,11 @@ export default function JobDetailsSection({ onSubmit, onBack }: JobDetailsSectio
           </div>
           
           <div className="flex justify-between mt-8">
-            <Button type="button" variant="outline" onClick={onBack}>
+            <Button type="button" variant="outline" onClick={onBack} disabled={isProcessing}>
               Back
             </Button>
-            <Button type="submit">
-              Analyze Resume
+            <Button type="submit" disabled={isProcessing}>
+              {isProcessing ? "Processing..." : "Analyze Resume"}
             </Button>
           </div>
         </form>
