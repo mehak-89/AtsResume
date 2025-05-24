@@ -16,6 +16,8 @@ const upload = multer({
     fileSize: 5 * 1024 * 1024, // 5MB max
   },
   fileFilter: (_req, file, cb) => {
+    console.log("Multer processing file:", file.originalname, file.mimetype);
+    
     // Accept only PDF, DOCX, DOC, and TXT files
     const allowedTypes = [
       'application/pdf',
@@ -24,9 +26,15 @@ const upload = multer({
       'text/plain'
     ];
     
-    if (allowedTypes.includes(file.mimetype)) {
+    // Also check file extension for more reliable detection
+    const fileExtension = file.originalname.split('.').pop()?.toLowerCase();
+    const validExtensions = ['pdf', 'docx', 'doc', 'txt'];
+    
+    if (allowedTypes.includes(file.mimetype) || 
+        (fileExtension && validExtensions.includes(fileExtension))) {
       cb(null, true);
     } else {
+      console.log("File rejected - invalid type:", file.mimetype, fileExtension);
       cb(new Error('Invalid file type. Only PDF, DOCX, DOC, and TXT files are allowed.'));
     }
   }
@@ -47,11 +55,17 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Analyze resume endpoint
   app.post('/api/analyze-resume', upload.single('resume'), async (req, res, next) => {
     try {
+      console.log("Received resume analysis request:", { 
+        hasFile: !!req.file,
+        body: req.body 
+      });
+
       if (!req.file) {
         return res.status(400).json({ message: "No resume file provided" });
       }
       
       const resumeFile = req.file;
+      console.log("File received:", resumeFile.originalname, resumeFile.mimetype, resumeFile.size);
       
       // Extract form data
       const jobTitle = req.body.jobTitle;
@@ -62,6 +76,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       try {
         skills = JSON.parse(req.body.skills);
       } catch (error) {
+        console.error("Error parsing skills:", error);
         return res.status(400).json({ message: "Invalid skills format" });
       }
       

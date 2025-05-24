@@ -64,14 +64,32 @@ export default function AtsChecker() {
     
     setJobDetails(details);
     
-    const formData = new FormData();
-    formData.append("resume", resumeFile);
-    formData.append("jobTitle", details.jobTitle);
-    formData.append("companyName", details.companyName || "");
-    formData.append("jobDescription", details.jobDescription);
-    formData.append("skills", JSON.stringify(details.skills));
-    
-    analyzeMutation.mutate(formData);
+    try {
+      // Create a new FormData instance
+      const formData = new FormData();
+      
+      // Append the file with explicit filename
+      formData.append("resume", resumeFile, resumeFile.name);
+      
+      // Append other form data
+      formData.append("jobTitle", details.jobTitle);
+      formData.append("companyName", details.companyName || "");
+      formData.append("jobDescription", details.jobDescription);
+      formData.append("skills", JSON.stringify(details.skills));
+      
+      // Log the form data entries for debugging
+      console.log("Form data created with file:", resumeFile.name, resumeFile.type, resumeFile.size);
+      
+      // Submit the form data
+      analyzeMutation.mutate(formData);
+    } catch (error) {
+      console.error("Error preparing form data:", error);
+      toast({
+        title: "Error",
+        description: "There was an error preparing your submission. Please try again.",
+        variant: "destructive",
+      });
+    }
   };
   
   const handleStartOver = () => {

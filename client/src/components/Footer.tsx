@@ -16,22 +16,22 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link href="/ats-checker">
-                  <a className="text-gray-600 hover:text-primary">ATS Score Checker</a>
+                  <span className="text-gray-600 hover:text-primary cursor-pointer">ATS Score Checker</span>
                 </Link>
               </li>
               <li>
                 <Link href="/">
-                  <a className="text-gray-600 hover:text-primary">Resume Builder</a>
+                  <span className="text-gray-600 hover:text-primary cursor-pointer">Resume Builder</span>
                 </Link>
               </li>
               <li>
                 <Link href="/">
-                  <a className="text-gray-600 hover:text-primary">Cover Letter Creator</a>
+                  <span className="text-gray-600 hover:text-primary cursor-pointer">Cover Letter Creator</span>
                 </Link>
               </li>
               <li>
                 <Link href="/">
-                  <a className="text-gray-600 hover:text-primary">Job Match Analyzer</a>
+                  <span className="text-gray-600 hover:text-primary cursor-pointer">Job Match Analyzer</span>
                 </Link>
               </li>
             </ul>
@@ -41,22 +41,22 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link href="/">
-                  <a className="text-gray-600 hover:text-primary">Resume Tips</a>
+                  <span className="text-gray-600 hover:text-primary cursor-pointer">Resume Tips</span>
                 </Link>
               </li>
               <li>
                 <Link href="/">
-                  <a className="text-gray-600 hover:text-primary">Career Blog</a>
+                  <span className="text-gray-600 hover:text-primary cursor-pointer">Career Blog</span>
                 </Link>
               </li>
               <li>
                 <Link href="/">
-                  <a className="text-gray-600 hover:text-primary">FAQs</a>
+                  <span className="text-gray-600 hover:text-primary cursor-pointer">FAQs</span>
                 </Link>
               </li>
               <li>
                 <Link href="/">
-                  <a className="text-gray-600 hover:text-primary">Help Center</a>
+                  <span className="text-gray-600 hover:text-primary cursor-pointer">Help Center</span>
                 </Link>
               </li>
             </ul>
@@ -66,22 +66,22 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link href="/about">
-                  <a className="text-gray-600 hover:text-primary">About Us</a>
+                  <span className="text-gray-600 hover:text-primary cursor-pointer">About Us</span>
                 </Link>
               </li>
               <li>
                 <Link href="/contact">
-                  <a className="text-gray-600 hover:text-primary">Contact</a>
+                  <span className="text-gray-600 hover:text-primary cursor-pointer">Contact</span>
                 </Link>
               </li>
               <li>
                 <Link href="/">
-                  <a className="text-gray-600 hover:text-primary">Privacy Policy</a>
+                  <span className="text-gray-600 hover:text-primary cursor-pointer">Privacy Policy</span>
                 </Link>
               </li>
               <li>
                 <Link href="/">
-                  <a className="text-gray-600 hover:text-primary">Terms of Service</a>
+                  <span className="text-gray-600 hover:text-primary cursor-pointer">Terms of Service</span>
                 </Link>
               </li>
             </ul>
